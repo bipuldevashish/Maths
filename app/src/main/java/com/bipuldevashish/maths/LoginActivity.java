@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,11 +27,13 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
+
     private EditText et_email,et_password;
     Button btn_login;
     String email,password;
     private ProgressBar progressBar;
-    private String URL = "http://192.168.1.104/loginregister/login.php";
+    private final String URL = "http://192.168.42.90/LoginRegister/login.php";
 
 
     @Override
@@ -53,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validate() {
-        email = et_email.getText().toString();
-        password = et_password.getText().toString();
+        email = et_email.getText().toString().trim();
+        password = et_password.getText().toString().trim();
 
         if (!email.isEmpty() && !password.isEmpty()){
             login(email, password);
@@ -71,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(String email, String password) {
-
+        Log.d(TAG, "login: email = "+ email + " || password = "+ password );
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -85,15 +88,19 @@ public class LoginActivity extends AppCompatActivity {
                 PutData putData = new PutData(URL, "POST", field, data);
                 if (putData.startPut()){
                     if (putData.onComplete()){
+                        Log.d(TAG, "run: on Complete");
                         progressBar.setVisibility(View.GONE);
                         String result = putData.getResult();
+                        Log.d(TAG, "result = "+ result);
                         if (result.equals("Login Success")){
+                            Log.d(TAG, "login success");
                             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                             finish();
                         }
                         else {
+                            Log.d(TAG, "run: login failed");
                             Toast.makeText(LoginActivity.this, result   , Toast.LENGTH_SHORT).show();
                         }
                     }
