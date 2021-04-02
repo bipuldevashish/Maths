@@ -1,7 +1,7 @@
-package com.bipuldevashish.maths;
+package com.bipuldevashish.maths.ui;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,20 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.bipuldevashish.maths.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     String email,password;
     private ProgressBar progressBar;
-    private final String URL = "http://192.168.42.90/LoginRegister/login.php";
+    private final String URL = "http://192.168.42.7/LoginRegister/login.php";
+    LinearLayout noAccount;
 
 
     @Override
@@ -41,16 +35,27 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         et_email = findViewById(R.id.etEmail);
         et_password = findViewById(R.id.etPassword);
         btn_login = findViewById(R.id.loginBtn);
         progressBar = findViewById(R.id.progressBar);
+        noAccount = findViewById(R.id.linearlayoutNoaccount);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 validate();
+            }
+        });
+
+        noAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

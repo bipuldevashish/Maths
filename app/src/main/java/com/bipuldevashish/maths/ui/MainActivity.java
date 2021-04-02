@@ -1,8 +1,10 @@
-package com.bipuldevashish.maths;
+package com.bipuldevashish.maths.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.bipuldevashish.maths.R;
 
 public class MainActivity extends AppCompatActivity {
 
