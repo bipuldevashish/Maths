@@ -13,8 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Maths"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.RegisterActivity"></activity>
-        <activity android:name=".ui.MainActivity" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.Maths.NoActionBar"></activity>
+        <activity android:name=".ui.Intro" />
+        <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
