@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.bipuldevashish.maths.ui.R;
+import com.bipuldevashish.maths.R;
+
 
 public class SlideshowFragment extends Fragment {
 

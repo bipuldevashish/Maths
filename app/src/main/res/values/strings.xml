@@ -3,7 +3,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="create_n_your_account">Create\nYour account</string>
+    <string name="create_n_your_account">Create Your Account</string>
     <string name="full_name">Full Name</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="sign_up">Sign up</string>
@@ -23,6 +23,14 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="this_is_title">This is Title</string>
+    <string name="this_is_sub_titile">This is Sub Title</string>
+    <string name="live_class">Live Class</string>
+    <string name="top_courses">Top Courses</string>
+    <string name="free_videos">Free Videos</string>
+    <string name="free_pdf">Free Pdf</string>
+    <string name="test_series">Test Series</string>
+    <string name="my_courses">My Courses</string>
 
 
 </resources>
