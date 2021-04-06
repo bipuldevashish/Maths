@@ -1,6 +1,7 @@
 package com.bipuldevashish.maths.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.bipuldevashish.maths.R;
+
+import java.util.Objects;
 
 public class Intro extends AppCompatActivity {
 
@@ -24,13 +27,16 @@ public class Intro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        getSupportActionBar().hide();
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
         btn = findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intro.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         viewFlipper = findViewById(R.id.viewflipper);
@@ -47,4 +53,11 @@ public class Intro extends AppCompatActivity {
         viewFlipper.setInAnimation(this, android.R.anim.slide_in_left);
         viewFlipper.setOutAnimation(this, android.R.anim.slide_out_right);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
 }

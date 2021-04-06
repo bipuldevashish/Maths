@@ -17,18 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="6dp">
-
             <ViewFlipper
                 android:id="@+id/viewflipper"
                 android:layout_width="match_parent"
                 android:layout_height="350dp" />
-        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/btn"

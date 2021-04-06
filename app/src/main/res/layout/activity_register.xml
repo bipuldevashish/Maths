@@ -14,65 +14,11 @@
         android:fontFamily="@font/open_sans_regular"
         android:text="@string/create_n_your_account"
         android:textColor="@color/colorPrimary"
+        android:layout_marginTop="32dp"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
-    <LinearLayout
-        android:id="@+id/registerForm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputNameRegister"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/loginToYourText"
-        android:orientation="vertical">
-
-    <RelativeLayout
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:id="@+id/relativeLay">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            android:src="@drawable/user_icon"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
-
-        <RelativeLayout
-            android:id="@+id/changeProfile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:clickable="true"
-            android:focusable="true">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/edit_background"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@color/gray"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp" />
-
-            <ImageView
-                android:id="@+id/btn_changeProfilePic"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_baseline_photo_camera_24" />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-    </LinearLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputPasswordRegister"
+        app:layout_constraintBottom_toTopOf="@+id/inputPhoneRegister"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintLeft_toRightOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline6">
@@ -117,11 +63,32 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputPhoneRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputPasswordRegister"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintLeft_toRightOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline6">
+
+        <EditText
+            android:id="@+id/etPhoneRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColorHint="@color/colorPrimary"
+            android:hint="@string/phoneNumber"
+            android:maxLength="10"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputPasswordRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputPhoneRegister"
+        app:layout_constraintBottom_toTopOf="@+id/inputCnfPasswordRegister"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintLeft_toRightOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline6">
@@ -137,7 +104,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputPhoneRegister"
+        android:id="@+id/inputCnfPasswordRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -147,13 +114,13 @@
         app:layout_constraintStart_toStartOf="@+id/guideline6">
 
         <EditText
-            android:id="@+id/etPhoneRegister"
+            android:id="@+id/etCnfPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:textColorHint="@color/colorPrimary"
-            android:hint="@string/phoneNumber"
-            android:inputType="phone" />
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -178,6 +145,7 @@
         android:clickable="true"
         android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.0"
@@ -198,9 +166,20 @@
             android:layout_height="wrap_content"
             android:paddingStart="4dp"
             android:text="@string/login"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            tools:ignore="RtlSymmetry" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pBar_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
