@@ -1,6 +1,8 @@
 package com.bipuldevashish.maths.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -25,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button sign_up;
     LinearLayout alreadyHaveLayout;
     ProgressBar progressBar;
-    private final String URL = "http://192.168.1.106/LoginRegister/signup.php";
+    private final String URL = "http://192.168.0.105/LoginRegister/signup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,10 +116,16 @@ public class RegisterActivity extends AppCompatActivity {
                         Log.d(TAG, "result = " + result);
                         if (result.equals("Sign Up Success")) {
                             Log.d(TAG, "Sign Up success");
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean(getString(R.string.isUserLoggedIn), true);
+                            editor.apply();
+
                             Toast.makeText(RegisterActivity.this.getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            RegisterActivity.this.startActivity(intent);
-                            RegisterActivity.this.finish();
+                            startActivity(intent);
+                            finish();
                         } else {
                             Log.d(TAG, "run: Sign up failed");
                             Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_SHORT).show();

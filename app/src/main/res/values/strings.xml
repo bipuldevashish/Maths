@@ -34,6 +34,12 @@
     <string name="live_classes_ads">Live Classes Ads</string>
     <string name="let_s_get_started">Let\'s Get Started</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="log_out">Log Out</string>
 
+    <string name="isAppFirstTime">isAppFirstTimeOpened</string>
+    <string name="isUserLoggedIn">isUserLoggedIn</string>
+
+    <string name="splash_name">Goswami \nMathematics</string>
+    <string name="pie_icon">Pie icon</string>
 
 </resources>
