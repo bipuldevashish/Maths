@@ -106,6 +106,9 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "run: login failed");
                             Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
                         }
+                    }else {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(this, "Something went wrong with server", Toast.LENGTH_SHORT).show();
                     }
                 }
             }catch (Exception e){

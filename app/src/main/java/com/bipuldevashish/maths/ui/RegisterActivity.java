@@ -16,14 +16,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bipuldevashish.maths.R;
+import com.bipuldevashish.maths.util.Utils;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity";
 
-    EditText etReg_name, etReg_email, etReg_phone, etReg_password;
-    String name, email, phoneNumber, password;
+    EditText etReg_name, etReg_email, etReg_phone, etReg_password, etReg_cnfPass;
+    String name, email, phoneNumber, password, cnf_pass;
     Button sign_up;
     LinearLayout alreadyHaveLayout;
     ProgressBar progressBar;
@@ -38,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         etReg_email = findViewById(R.id.etEmailRegister);
         etReg_phone = findViewById(R.id.etPhoneRegister);
         etReg_password = findViewById(R.id.etPasswordRegister);
+        etReg_cnfPass = findViewById(R.id.etCnfPasswordRegister);
 
         progressBar = findViewById(R.id.pBar_register);
         sign_up = findViewById(R.id.registerBtn);
@@ -62,32 +64,46 @@ public class RegisterActivity extends AppCompatActivity {
         email = etReg_email.getText().toString();
         phoneNumber = etReg_phone.getText().toString();
         password = etReg_password.getText().toString();
+        cnf_pass = etReg_cnfPass.getText().toString();
 
-        if ( !name.isEmpty() && !email.isEmpty() && !phoneNumber.isEmpty() && !password.isEmpty() ){
+        if (!name.isEmpty() && !email.isEmpty() && !phoneNumber.isEmpty() && !password.isEmpty() && !cnf_pass.isEmpty() && password.equals(cnf_pass) & Utils.isEmailValid(email)) {
             Log.d(TAG, "validate: calling sign up function");
             signUp(name, email, phoneNumber, password);
-        }else {
-            if (name.isEmpty()){
+        } else {
+            if (name.isEmpty()) {
                 etReg_name.setError("Please Enter Name");
                 progressBar.setVisibility(View.GONE);
             }
-            if (email.isEmpty()){
+            if (email.isEmpty()) {
                 etReg_email.setError("Please Enter Email");
                 progressBar.setVisibility(View.GONE);
             }
-            if (phoneNumber.isEmpty()){
+            if (!Utils.isEmailValid(email)) {
+                etReg_email.setError("Please Enter Valid Email");
+                progressBar.setVisibility(View.GONE);
+            }
+            if (phoneNumber.isEmpty()) {
                 etReg_phone.setError("Please Enter PhoneNumber");
                 progressBar.setVisibility(View.GONE);
             }
 
             if (password.isEmpty()) {
-                etReg_password.setError("Please Enter password");
+                etReg_password.setError("Please Enter Password");
+                progressBar.setVisibility(View.GONE);
+            }
+
+            if (cnf_pass.isEmpty()) {
+                etReg_cnfPass.setError("Please Confirm Your Password");
+                progressBar.setVisibility(View.GONE);
+            }
+
+            if (!password.equals(cnf_pass)) {
+                etReg_cnfPass.setError("Password and Confirm Password Should be Same");
                 progressBar.setVisibility(View.GONE);
             }
         }
 
     }
-
 
 
     private void signUp(String Name, String Email, String PhoneNumber, String Password) {
@@ -111,11 +127,11 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.d(TAG, "signUp: put started ");
                     if (putData.onComplete()) {
                         Log.d(TAG, "run: on Complete");
-                        progressBar.setVisibility(View.GONE);
                         String result = putData.getResult();
                         Log.d(TAG, "result = " + result);
                         if (result.equals("Sign Up Success")) {
                             Log.d(TAG, "Sign Up success");
+                            progressBar.setVisibility(View.GONE);
 
                             SharedPreferences sharedPreferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -127,9 +143,14 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             Log.d(TAG, "run: Sign up failed");
                             Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_SHORT).show();
                         }
+                    }
+                    else {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(RegisterActivity.this, "Something went wrong with server", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
