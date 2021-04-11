@@ -1,4 +1,4 @@
-package com.bipuldevashish.maths.ui.ui.home;
+package com.bipuldevashish.maths.ui.fragments.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

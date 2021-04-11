@@ -22,11 +22,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
 
-    private EditText et_email,et_password;
+    EditText et_email,et_password;
     Button btn_login;
     String email,password;
     private ProgressBar progressBar;
-    private final String URL = "http://192.168.0.105/LoginRegister/login.php";
+    private final String URL = "http://192.168.0.106/LoginRegister/login.php";
     LinearLayout noAccount;
 
 
@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else {
                             Log.d(TAG, "run: login failed");
-                            Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                         }
                     }else {
                         progressBar.setVisibility(View.GONE);

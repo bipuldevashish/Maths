@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <ImageView
@@ -12,50 +11,12 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="30dp"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="6dp">
 
-
-        <TextView
-            android:id="@+id/text1"
+        <ImageView
+            android:id="@+id/slider_imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:padding="16dp"
-            android:text="@string/this_is_title"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="60dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:padding="16dp"
-            android:text="@string/this_is_sub_titile"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circularImageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end"
-            android:layout_margin="16dp"
+            android:padding="8dp"
             android:outlineSpotShadowColor="@color/black" />
 
-    </androidx.cardview.widget.CardView>
 </FrameLayout>
