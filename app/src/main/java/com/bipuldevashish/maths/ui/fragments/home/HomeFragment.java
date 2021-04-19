@@ -16,8 +16,11 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bipuldevashish.maths.R;
 import com.bipuldevashish.maths.models.SliderItem;
 import com.bipuldevashish.maths.ui.AllCourse;
+import com.bipuldevashish.maths.ui.DoubtActivity;
+import com.bipuldevashish.maths.ui.FreeVideosActivity;
 import com.bipuldevashish.maths.ui.LiveClass;
 import com.bipuldevashish.maths.ui.Mycourse;
+import com.bipuldevashish.maths.ui.PdfActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -66,25 +69,39 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button my_courses = root.findViewById(R.id.my_courses);
+        my_courses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent( getActivity(), Mycourse.class));
+            }
+        });
+
+        Button free_pdf = root.findViewById(R.id.free_pdf);
+        free_pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent( getActivity(), PdfActivity.class));
+            }
+        });
+
+        Button testSeries = root.findViewById(R.id.btn_test);
+        testSeries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent( getActivity(), DoubtActivity.class));
+            }
+        });
+
+        Button freeVideos = root.findViewById(R.id.free_video);
+        freeVideos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), FreeVideosActivity.class));
+            }
+        });
+
         return root;
     }
 
-//    @SuppressLint("NonConstantResourceId")
-//    @Override
-//    public void onClick(View v) {
-//
-//        switch (v.getId()){
-//            case R.id.live_classes: {
-//                Intent intent = new Intent(getActivity(), LiveClass.class);
-//                startActivity(intent);
-//                break;
-//            }
-//
-//            case R.id.my_courses: {
-//                startActivity(new Intent(getActivity(), Mycourse.class));
-//                break;
-//            }
-//
-//        }
-//    }
 }

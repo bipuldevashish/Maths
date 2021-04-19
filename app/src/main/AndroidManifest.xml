@@ -15,6 +15,10 @@
         android:theme="@style/Theme.Maths"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".ui.FreeVideosActivity"></activity>
+        <activity android:name=".ui.PdfActivity" />
+        <activity android:name=".ui.DoubtActivity" />
+        <activity android:name=".ui.BooksActivity" />
         <activity android:name=".ui.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,11 +30,12 @@
             android:name=".ui.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.Maths.NoActionBar" />
-        <activity android:name=".ui.Intro">
-        </activity>
+        <activity android:name=".ui.Intro" />
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.LoginActivity" />
-
+        <activity android:name=".ui.AllCourse" />
+        <activity android:name=".ui.Mycourse" />
+        <activity android:name=".ui.LiveClass" />
     </application>
 
 </manifest>

@@ -49,5 +49,8 @@
     <string name="oops">OOPS!</string>
     <string name="please_check_your_connection">Please check your connection</string>
     <string name="retry">Retry</string>
+    <string name="doubt">Doubts?</string>
+    <string name="about_us">About Us</string>
+    <string name="legals">Legals</string>
 
 </resources>

@@ -37,8 +37,7 @@ public class AllCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_all_cuse);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         webView = findViewById(R.id.webView);
         if (android.os.Build.VERSION.SDK_INT >= 21) {

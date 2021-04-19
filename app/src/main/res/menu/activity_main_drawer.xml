@@ -9,26 +9,30 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/menu_home" />
+
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_baseline_settings_24"
-            android:title="@string/menu_settings" />
+            android:icon="@drawable/ic_baseline_contact_support_24"
+            android:title="@string/about_us" />
 
     </group>
 
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_baseline_perm_phone_msg_24"
+            android:title="@string/munu_contact_us" />
+
+        <item
             android:id="@+id/nav_share_app"
             android:icon="@drawable/ic_baseline_share_24"
             android:title="@string/menu_share" />
 
-
         <item
-            android:id="@+id/nav_contact_us"
-            android:icon="@drawable/ic_baseline_contact_support_24"
-            android:title="@string/munu_contact_us" />
-
+            android:id="@+id/nav_legals"
+            android:icon="@drawable/ic_balance"
+            android:title="@string/legals" />
     </group>
 
 </menu>
