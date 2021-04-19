@@ -71,13 +71,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button
-        android:id="@+id/top_courses"
+        android:id="@+id/all_courses"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/top_courses"
+        android:text="@string/all_courses"
         android:backgroundTint="@color/colorPrimaryComplementry"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
