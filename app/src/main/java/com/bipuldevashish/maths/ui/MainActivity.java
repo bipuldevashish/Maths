@@ -3,36 +3,31 @@ package com.bipuldevashish.maths.ui;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.bipuldevashish.maths.MyApplication;
 import com.bipuldevashish.maths.R;
-import com.bipuldevashish.maths.util.ConnectivityReceiver;
+import com.bipuldevashish.maths.util.NetworkChangeListener;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity
-        implements ConnectivityReceiver.ConnectivityReceiverListener {
+public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,20 +98,21 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        // register connection status listener
-        MyApplication.getInstance().setConnectivityListener(this);
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
+        super.onStart();
     }
 
     @Override
-    public void onNetworkConnectionChanged(boolean isConnected) {
-        if (isConnected){
-            Toast.makeText(this, "Good we are back", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(this, "No internet", Toast.LENGTH_SHORT).show();
-
-        }
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 }

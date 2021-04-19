@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button sign_up;
     LinearLayout alreadyHaveLayout;
     ProgressBar progressBar;
-    private final String URL = "http://192.168.0.106/LoginRegister/signup.php";
+    private final String URL = "http://bipuldevashish.000webhostapp.com/signup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     String email,password;
     private ProgressBar progressBar;
-    private final String URL = "http://192.168.0.106/LoginRegister/login.php";
+    private final String URL = "http://bipuldevashish.000webhostapp.com/login.php";
     LinearLayout noAccount;
 
 

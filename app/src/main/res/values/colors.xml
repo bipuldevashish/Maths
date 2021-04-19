@@ -17,5 +17,8 @@
 
     <color name="red1">#bd2520</color>
 
+    <color name="PrimaryDemo">#554911</color>
+    <color name="PrimaryLightDemo">#EEE3AB</color>
+    <color name="AccentDemo">#665815</color>
 
 </resources>
