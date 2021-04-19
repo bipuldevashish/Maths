@@ -1,10 +1,13 @@
 package com.bipuldevashish.maths.ui.fragments.home;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bipuldevashish.maths.R;
 import com.bipuldevashish.maths.models.SliderItem;
+import com.bipuldevashish.maths.ui.AllCourse;
+import com.bipuldevashish.maths.ui.LiveClass;
+import com.bipuldevashish.maths.ui.Mycourse;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -42,6 +48,43 @@ public class HomeFragment extends Fragment {
         sliderView.startAutoCycle();
         sliderView.setScrollTimeInMillis(5000);
 
+        Button button_liveClass = root.findViewById(R.id.live_classes);
+        button_liveClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LiveClass.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button_allCourses  = root.findViewById(R.id.all_courses);
+        button_allCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AllCourse.class));
+
+            }
+        });
+
         return root;
     }
+
+//    @SuppressLint("NonConstantResourceId")
+//    @Override
+//    public void onClick(View v) {
+//
+//        switch (v.getId()){
+//            case R.id.live_classes: {
+//                Intent intent = new Intent(getActivity(), LiveClass.class);
+//                startActivity(intent);
+//                break;
+//            }
+//
+//            case R.id.my_courses: {
+//                startActivity(new Intent(getActivity(), Mycourse.class));
+//                break;
+//            }
+//
+//        }
+//    }
 }
