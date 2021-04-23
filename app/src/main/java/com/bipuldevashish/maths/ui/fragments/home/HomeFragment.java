@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -51,7 +52,7 @@ public class HomeFragment extends Fragment {
         sliderView.startAutoCycle();
         sliderView.setScrollTimeInMillis(5000);
 
-        Button button_liveClass = root.findViewById(R.id.live_classes);
+        LinearLayout button_liveClass = root.findViewById(R.id.btn_live_class);
         button_liveClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +61,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Button button_allCourses  = root.findViewById(R.id.all_courses);
+        LinearLayout button_allCourses  = root.findViewById(R.id.btn_all_courses);
         button_allCourses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +70,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Button my_courses = root.findViewById(R.id.my_courses);
+        LinearLayout my_courses = root.findViewById(R.id.btn_my_courses);
         my_courses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +78,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Button free_pdf = root.findViewById(R.id.free_pdf);
+        LinearLayout free_pdf = root.findViewById(R.id.btn_free_pdf);
         free_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +86,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Button testSeries = root.findViewById(R.id.btn_test);
+        LinearLayout testSeries = root.findViewById(R.id.btn_doubts);
         testSeries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +94,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Button freeVideos = root.findViewById(R.id.free_video);
+        LinearLayout freeVideos = root.findViewById(R.id.btn_free_videos);
         freeVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
